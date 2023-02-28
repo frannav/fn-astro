@@ -1,0 +1,35 @@
+---
+export interface Props {
+  name: string;
+  size?: "sm" | "lg";
+}
+
+const { name, size = "sm" } = Astro.props;
+---
+
+<li
+  class={`flex ${
+    size === "sm" ? "my-1 underline-offset-4" : "my-3 mx-1 underline-offset-8"
+  }`}
+>
+  <a
+    href={`/`}
+    class={`${size === "sm" ? "text-sm" : "text-lg"} pr-2 group`}
+  >
+  <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="48" height="48" viewBox="0 0 24 24" stroke-width="1.5" stroke="#000000" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+    <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+    <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+  </svg>
+    &nbsp;<span>{name.toLowerCase()}</span>
+  </a>
+</li>
+
+<style>
+  a {
+    @apply relative hover:-top-0.5 hover:text-skin-accent focus-visible:p-1;
+  }
+  a svg {
+    @apply -mr-3 h-6 w-6 scale-95 text-skin-base opacity-80 group-hover:fill-skin-accent;
+  }
+</style>
