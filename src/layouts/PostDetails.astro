@@ -46,7 +46,7 @@ const ogUrl = new URL(ogImage ? ogImage : `${title}.svg`, Astro.url.origin)
       {tags.map(tag => <Tag name={tag} />)}
     </ul>
     <ul class="tags-container">
-      {references && (<p>Referencias:</p>)}
+      {references?.length !== 0 && (<p>Referencias:</p>)}
       {references && (references.map(tag => <Reference name={tag} />))}
     </ul>
   </main>
